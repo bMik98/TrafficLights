@@ -2,7 +2,6 @@ package io.khasang.TrafficLights.view;
 
 import io.khasang.TrafficLights.model.Light.Light;
 import io.khasang.TrafficLights.model.TrafficLights;
-
 import java.util.Scanner;
 
 public class ConsoleView {
@@ -19,5 +18,9 @@ public class ConsoleView {
         if (light == null) {
             System.out.println();
         }
+    }
+
+    public void showLight(long time, final String colour, final String mode) {
+        System.out.printf("%d  %s - %s %s", time, trafficLights.);
     }
 }
