@@ -3,7 +3,6 @@ package io.khasang.TrafficLights.model.LightProgram;
 import io.khasang.TrafficLights.model.Light.Light;
 import io.khasang.TrafficLights.model.Light.LightColour;
 import io.khasang.TrafficLights.model.Light.LightMode;
-import io.khasang.TrafficLights.model.LightProgram.LightProgramItem;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -24,5 +23,4 @@ public class LightProgramItemTest {
         assertFalse("Yet should not be On", lightProgramItem.isOnTime(START - 1));
         assertFalse("Already should be Off", lightProgramItem.isOnTime(stopTime + 1));
     }
-
 }

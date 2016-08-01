@@ -1,8 +1,17 @@
 package io.khasang.TrafficLights.controller;
 
-public class TrafficLightsSimulator {
+import io.khasang.TrafficLights.model.TrafficLights;
+import io.khasang.TrafficLights.view.ConsoleView;
 
-    public void run(final int a, final int stepDuration) {
+public class TrafficLightsSimulator {
+    private TrafficLights trafficLights;
+    private ConsoleView consoleView
+
+
+    public static void main(String[] args) {
+        new TrafficLightsSimulator().run();
+    }
+    public void runSequence(final long steps, final long stepDuration) {
 
     }
 }

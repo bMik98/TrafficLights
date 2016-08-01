@@ -1,20 +1,31 @@
 package io.khasang.TrafficLights.model.LightProgram;
 
 import io.khasang.TrafficLights.model.Light.Light;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class LightProgram {
-    private List<LightProgramItem> items = new ArrayList<>();
+    private List<LightProgramItem> items;
     private long cycleTime;
 
-    public void turnLightOn(final Light light, long lightTime) {
-        cycleTime++;
-        items.add(new LightProgramItem(light, cycleTime, cycleTime + lightTime));
-        cycleTime += lightTime;
+    public LightProgram() {
+        this.items = new ArrayList<>();
+        this.cycleTime = 0;
+    }
+
+    public void appendLightToSequence(final Light light) {
+        items.add(new LightProgramItem(light, cycleTime, cycleTime + light.getDuration() - 1));
+        cycleTime += light.getDuration();
     }
 
     public Light getLightAt(long time) {
-
+        long cycleTimeStamp = (time > 0) ? time % this.cycleTime : 0;
+        for (LightProgramItem item : this.items) {
+            if (item.isOnTime(cycleTimeStamp)) {
+                return item.getLight();
+            }
+        }
+        return null;
     }
 }

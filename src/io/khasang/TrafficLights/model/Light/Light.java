@@ -1,25 +1,25 @@
 package io.khasang.TrafficLights.model.Light;
 
 public class Light {
-    private LightColour lightColour;
-    private LightMode lightMode;
-    private long lightDuration;
+    private LightColour colour;
+    private LightMode mode;
+    private long duration;
 
-    public Light(LightColour lightColour, LightMode lightMode, long lightDuration) {
-        this.lightColour = lightColour;
-        this.lightMode = lightMode;
-        this.lightDuration = lightDuration;
+    public Light(LightColour colour, LightMode mode, long duration) {
+        this.colour = colour;
+        this.mode = mode;
+        this.duration = duration;
     }
 
-    public LightColour getLightColour() {
-        return lightColour;
+    public LightColour getColour() {
+        return colour;
     }
 
-    public LightMode getLightMode() {
-        return lightMode;
+    public LightMode getMode() {
+        return mode;
     }
 
-    public long getLightDuration() {
-        return lightDuration;
+    public long getDuration() {
+        return duration;
     }
 }
