@@ -16,11 +16,13 @@ public class ConsoleView {
     public void showLightAt(long time) {
         Light light = trafficLights.getLightAt(time);
         if (light == null) {
-            System.out.println();
+            showLight(time, "OFF", "");
+        } else {
+            showLight(time, light.getColour().toString(), light.getMode().toString());
         }
     }
 
     public void showLight(long time, final String colour, final String mode) {
-        System.out.printf("%d  %s - %s %s", time, trafficLights.);
+        System.out.printf("%d  %s - %s %s %n", time, trafficLights.getName(), colour, mode);
     }
 }
