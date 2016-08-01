@@ -18,14 +18,15 @@ public class TrafficLightsSimulator {
     public void run() {
         LightProgram lightProgram = new LightProgram();
         lightProgram.appendLightToSequence(new Light(LightColour.GREEN, LightMode.CONTINUOUS, 10));
-        lightProgram.appendLightToSequence(new Light(LightColour.YELLOW, LightMode.CONTINUOUS, 10));
+        lightProgram.appendLightToSequence(new Light(LightColour.YELLOW, LightMode.BLINKING, 5));
         lightProgram.appendLightToSequence(new Light(LightColour.RED, LightMode.CONTINUOUS, 10));
-        trafficLights = new TrafficLights(lightProgram, "Svetofor");
+        lightProgram.appendLightToSequence(new Light(LightColour.YELLOW, LightMode.CONTINUOUS, 5));
+        trafficLights = new TrafficLights(lightProgram, "Svetofor #1");
         consoleView = new ConsoleView(trafficLights);
-        runSequence(0, 40);
+        runLog(0, 40);
     }
 
-    public void runSequence(long start, long stop) {
+    public void runLog(long start, long stop) {
         for (long i = start; i <= stop; i++) {
             consoleView.showLightAt(i);
         }

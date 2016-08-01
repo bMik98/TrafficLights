@@ -28,4 +28,20 @@ public class LightProgram {
         }
         return null;
     }
+
+    public int getLightIndexAt(long time) {
+        long cycleTimeStamp = (time > 0) ? time % this.cycleTime : 0;
+        for (int i = 0; i < items.size(); i++) {
+            if (items.get(i).isOnTime(cycleTimeStamp)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public int getNextLightIndex(long time) {
+        int currentIndex = getLightIndexAt(time);
+        return (currentIndex >= items.size() || currentIndex < 0) ? 0 : currentIndex + 1;
+    }
+
 }
